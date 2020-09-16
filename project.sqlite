@@ -1,0 +1,27 @@
+ SELECT * FROM transactions;
+
+ SELECT SUM(money_in) as 'total money in' 
+ FROM transactions;
+
+ SELECT SUM(money_out) as 'total money out'
+ FROM transactions;
+
+ SELECT COUNT(money_in) as 'count' 
+ FROM transactions
+ WHERE money_in IS NOT NULL;
+
+ SELECT COUNT(money_in) as 'count'
+ FROM transactions
+ WHERE currency = 'BIT'
+  AND money_in IS NOT NULL;
+
+  SELECT MAX(money_in), MAX (money_out)
+  FROM transactions;
+
+  SELECT ROUND(AVG(money_in), 2) as 'avg money in'
+  FROM transactions
+  WHERE currency = 'ETH';
+
+  SELECT date, ROUND(AVG(money_in), 2) AS 'avg money in', ROUND(AVG(money_out), 2) as 'avg money out'
+  FROM transactions 
+  GROUP BY 1;
